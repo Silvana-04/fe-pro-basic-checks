@@ -3,14 +3,22 @@
  * @param {string} string
  * @returns {string}
  */
-export const capitalizeString = 0;
+export const capitalizeString = (string) => string.split(' ').map(string =>`${string[0].toUpperCase() + string.slice(1)}`).join(' ');
 
 /**
  * Должна быть function declaration
  * @param {string} string
  * @returns {string}
  */
-export const fenceString = 0;
+export function fenceString(string) {
+    var str = string.toLowerCase().split('');
+    for(var i = 0; i < str.length; i++){ 
+        if (i % 2 !== 0){
+            str[i] = str[i].toUpperCase();
+        }
+    }
+    return str.join('');
+};
 
 /**
  * Должна быть function expression
@@ -18,7 +26,32 @@ export const fenceString = 0;
  * @param {string} string
  * @returns {string}
  */
-export const reducerIf = 0;
+export const reducerIf = function(action, string) {
+    if (action === 'uppercase'){
+        string = string.toUpperCase();
+        return string;
+    }
+    if (action === 'lowercase'){
+        string = string.toLowerCase();
+        return string;
+    }
+    if (action === 'capitalize'){
+        string = string.split(' ').map(string =>`${string[0].toUpperCase() + string.slice(1)}`).join(' ');
+        return string;
+    }
+    if (action === 'fence'){
+        var str = string.toLowerCase().split('');
+        for(var i = 0; i < str.length; i++){ 
+            if (i % 2 !== 0){
+                str[i] = str[i].toUpperCase();
+            }
+        }
+        return str.join('');
+    } else string = string;
+    return string;
+    
+};
+reducerIf();
 
 /**
  * Стрелочная
@@ -26,28 +59,74 @@ export const reducerIf = 0;
  * @param {string} string
  * @returns {string}
  */
-export const reducerSwitch = 0;
+export const reducerSwitch = (action, string) => {
+    switch (action){
+        case 'uppercase':
+            string = string.toUpperCase();
+            return string;
+            break;
+        case 'lowercase':
+            string = string.toLowerCase();
+            return string;
+            break;
+        case 'capitalize':
+            string = string.split(' ').map(string =>`${string[0].toUpperCase() + string.slice(1)}`).join(' ');
+            return string;
+            break;
+        case 'fence':
+            var str = string.toLowerCase().split('');
+            for(var i = 0; i < str.length; i++){ 
+            if (i % 2 !== 0){
+                str[i] = str[i].toUpperCase();
+                }
+            }
+            return str.join('');
+            break;
+        default: 
+            string = string;
+            return string;
+    }
+};
+reducerSwitch();
 
 /**
  Стрелочная
  * @param {string} string
  */
-export const consoleLoggerWordsForOf = 0;
+export const consoleLoggerWordsForOf = (string) => {
+    for (let letter of string){
+        console.log(letter);
+    }
+};
 
 /**
  Стрелочная
  * @param {string} string
  */
-export const consoleLoggerWordsFor = 0;
+export const consoleLoggerWordsFor = (string) => {
+    var i;
+    for (i=0; i < string.length; i++){
+        console.log(string[i]);
+    }
+};
 
 /**
  Стрелочная
  * @param {string} string
  */
-export const consoleLoggerWordsWhile = 0;
+export const consoleLoggerWordsWhile = (string) => {
+    var i = -1;
+    while (i < (string.length - 1)){
+        i ++;
+        console.log(string[i]);
+    }
+};
 
 /**
  Стрелочная
  * @param {string} string
  */
-export const consoleLoggerWordsSplit = 0;
+export const consoleLoggerWordsSplit = (string) => {
+    string = string.split('').join('\n');
+    console.log(string);
+}
