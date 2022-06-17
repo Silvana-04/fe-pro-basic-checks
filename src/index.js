@@ -3,7 +3,7 @@
  * @param {string} string
  * @returns {string}
  */
-export const capitalizeString = (string) => string.split(' ').map(string =>`${string[0].toUpperCase() + string.slice(1)}`).join(' ');
+export const capitalizeString = (string) => string.split(' ').map(string =>`${string[0].toUpperCase()}${string.slice(1)}`).join(' ');
 
 /**
  * Должна быть function declaration
@@ -36,7 +36,7 @@ export const reducerIf = function(action, string) {
         return string;
     }
     if (action === 'capitalize'){
-        string = string.split(' ').map(string =>`${string[0].toUpperCase() + string.slice(1)}`).join(' ');
+        string = string.split(' ').map(string =>`${string[0].toUpperCase()}${string.slice(1)}`).join(' ');
         return string;
     }
     if (action === 'fence'){
@@ -70,7 +70,7 @@ export const reducerSwitch = (action, string) => {
             return string;
             break;
         case 'capitalize':
-            string = string.split(' ').map(string =>`${string[0].toUpperCase() + string.slice(1)}`).join(' ');
+            string = string.split(' ').map(string =>`${string[0].toUpperCase()}${string.slice(1)}`).join(' ');
             return string;
             break;
         case 'fence':
